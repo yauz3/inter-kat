@@ -60,22 +60,8 @@ train_data = pd.concat([X_train, y_train], axis=1)
 # 📌 Train
 predictor = TabularPredictor(label=label, eval_metric="root_mean_squared_error").fit(
     train_data, auto_stack=True, time_limit=60*2, keep_only_best=True,
-    num_stack_levels=1, num_bag_folds=8,   num_bag_sets=1, presets="best_quality")  # presets="best_quality" overfitting  /// good_quality
-#   num_stack_levels=1  num_bag_folds 2-10  num_bag_sets higher but computationaly intense
-# time_limit=60*2, keep_only_best=True, num_stack_levels=1, num_bag_folds=8, num_bag_sets=1, presets="best_quality"
-# root_mean_squared_error   α 87 81  Extra 91   β 84 75 76  π* 85 68  153
-# mean_squared_error        α                   β           π* 82 61  143
-# mean_absolute_error       α                   β           π* 80 67  137
-# median_absolute_error     α 87 74             β 86 71     π* 84 63  147
-# r2                        α 87 78  Extra 90   β 86 79     π* 81 71  152
-# [‘root_mean_squared_error’, ‘mean_squared_error’, ‘mean_absolute_error’, ‘median_absolute_error’, ‘r2’]
-# [‘best_quality’, ‘high_quality’, ‘good_quality’, ‘medium_quality’, ‘experimental_quality’, ‘optimize_for_deployment’, ‘interpretable’, ‘ignore_text’]
+    num_stack_levels=1, num_bag_folds=8,   num_bag_sets=1, presets="best_quality") 
 
-"""
-predictor = TabularPredictor(label=label, eval_metric="r2").fit(
-    train_data, auto_stack=True, time_limit=60*1, keep_only_best=True, presets="best_quality",
-excluded_model_types=["KNN", "LinearModel"], hyperparameter_tune=True, time_limit=60*2)
-"""
 ########################################################################################################################
 # 📌 Make prediction on validation set, to train meta models
 val_data_selected = X_val.copy()
@@ -104,20 +90,6 @@ rulefit_model.fit(rulefit_features, rulefit_target)
 # 📌 Save rulefit model
 with open(f"rulefit_model_{label}.pkl", "wb") as f:
     pickle.dump(rulefit_model, f)
-
-# 📌 BoostedRulesRegressor Modeli Eğit
-boosted_model = RandomForestRegressor(random_state=42)
-boosted_model.fit(rulefit_features, rulefit_target)
-# 📌 RuleFit modelini kaydet
-with open(f"boosted_model_{label}.pkl", "wb") as f:
-    pickle.dump(boosted_model, f)
-
-# 📌 TreeGAMRegressor Modeli Eğit
-tao_model = ExtraTreesRegressor(random_state=42)
-tao_model.fit(rulefit_features, rulefit_target)
-# 📌 RuleFit modelini kaydet
-with open(f"tao_model_{label}.pkl", "wb") as f:
-    pickle.dump(tao_model, f)
 
 print("Traning is finished!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
