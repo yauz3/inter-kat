@@ -1,3 +1,5 @@
+# Inter-KAT: Interpretable Machine Learning Model using Reverse Modeling Technique for Kamlet-Taft Parameter Prediction
+
 # Reference Implementation of Inter-KAT algorithm
 This readme file documents all of the required steps to run Inter-KAT.
 
