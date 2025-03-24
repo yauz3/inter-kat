@@ -26,3 +26,8 @@ pip install -r requirements.txt
 2_train_Autogluon_rule_fit.py: train the models
 
 3_performance.py: evaluate the models
+
+
+## License
+
+This project is licensed for **academic and research purposes only**. Commercial use is prohibited.
