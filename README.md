@@ -30,4 +30,4 @@ pip install -r requirements.txt
 
 ## License
 
-This project is licensed for **academic and research purposes only**. Commercial use is prohibited.
+This project is licensed for **academic and research purposes only**. For commercial usage, please connect with s.yavuz.ugurlu@gmail.com
