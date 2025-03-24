@@ -1,0 +1,14 @@
+scoria==1.0.5
+mdtraj
+autogluon
+numpy
+xlsxwriter
+mxnet
+PyBioMed
+mordred
+JPype1
+pyscf
+pycosmo
+MDAnalysis
+git+https://github.com/christophM/rulefit.git
+cvxpy
