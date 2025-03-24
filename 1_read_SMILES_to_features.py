@@ -147,18 +147,3 @@ def merge_csv_on_smiles(file1, file2, output_file="merged_output.csv"):
 
     return merged_df
 
-
-# training
-"""generate_features("kat_isomeric_smiles_train_cleaned_2_150.csv", "molecular_features.csv")
-
-merged_df = merge_csv_on_smiles("kat_isomeric_smiles_train_cleaned_2_150.csv", "molecular_features.csv", "kat_training_ready.csv")
-"""
-# test
-"""generate_features("kat_isomeric_smiles_test_cleaned_no_overlapped_2_48.csv", "molecular_features_test.csv")
-
-merged_df = merge_csv_on_smiles("kat_isomeric_smiles_test_cleaned_no_overlapped_2_48.csv", "molecular_features_test.csv", "kat_test_ready.csv")"""
-
-
-generate_features("all_data_ready.csv", "all_features.csv")
-
-merged_df = merge_csv_on_smiles("all_data_ready.csv", "all_features.csv", "all_features_ready.csv")
